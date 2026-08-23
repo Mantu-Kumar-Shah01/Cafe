@@ -44,25 +44,25 @@ export interface Testimonial {
 export const MENU_ITEMS: MenuItem[] = [
   {
     id: 'm1',
-    name: 'Yirgacheffe Pour-Over',
+    name: 'Chikmagalur Baba Budan Pour-Over',
     category: 'espresso',
-    price: '€8.50',
-    description: 'V60 single-origin hand pour with vibrant floral aroma and delicate bergamot finish.',
-    notes: ['Bergamot', 'Jasmine Blossom', 'Meyer Lemon', 'Black Tea'],
-    origin: 'Gedeo Zone, Ethiopia',
-    elevation: '2,150m MASL',
+    price: '₹380',
+    description: 'V60 single-estate hand pour with vibrant cardamom spice, Meyer lemon, and wildflower honey finish.',
+    notes: ['Cardamom Blossom', 'Wild Honey', 'Meyer Lemon', 'Sweet Cocoa'],
+    origin: 'Baba Budangiri, Karnataka, India',
+    elevation: '1,550m MASL',
     image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=1000&auto=format&fit=crop',
-    tag: 'Signature Origin'
+    tag: 'Estate Reserve'
   },
   {
     id: 'm2',
     name: 'Espresso Tonic No. 4',
     category: 'elixir',
-    price: '€9.00',
-    description: 'Double shot Geisha extraction over botanical Mediterranean tonic, garnished with charred rosemary.',
+    price: '₹420',
+    description: 'Double shot Araku micro-lot extraction over botanical Indian craft tonic, garnished with charred rosemary.',
     notes: ['Charred Rosemary', 'Pink Peppercorn', 'Sparkling Yuzu'],
-    origin: 'Boquete, Panama',
-    elevation: '1,780m MASL',
+    origin: 'Araku Valley, Andhra Pradesh, India',
+    elevation: '1,200m MASL',
     image: 'https://images.unsplash.com/photo-1517256064527-09c73fc73e38?q=80&w=1000&auto=format&fit=crop',
     tag: 'House Special'
   },
@@ -70,22 +70,22 @@ export const MENU_ITEMS: MenuItem[] = [
     id: 'm3',
     name: 'Wildflower Honey & Oat Latte',
     category: 'espresso',
-    price: '€7.50',
-    description: 'Raw mountain blossom honey infused with Madagascar vanilla bean and micro-foamed organic oat milk.',
-    notes: ['Wild Honey', 'Madagascar Vanilla', 'Toasted Oat'],
-    origin: 'Huila, Colombia',
-    elevation: '1,850m MASL',
+    price: '₹340',
+    description: 'Raw Coorg forest blossom honey infused with real vanilla bean and micro-foamed organic oat milk.',
+    notes: ['Coorg Forest Honey', 'Madagascar Vanilla', 'Toasted Oat'],
+    origin: 'Madikeri, Coorg, India',
+    elevation: '1,400m MASL',
     image: 'https://images.unsplash.com/photo-1534778101976-62847782c213?q=80&w=1000&auto=format&fit=crop',
   },
   {
     id: 'm4',
     name: 'Smoked Vanilla Nitro Cold Brew',
     category: 'elixir',
-    price: '€8.00',
-    description: '24-hour slow steeped anaerobic batch infused with nitrogen for a silky Guinness-like micro-head.',
+    price: '₹390',
+    description: '24-hour slow steeped anaerobic batch infused with nitrogen for a silky micro-head texture.',
     notes: ['Oak Smoke', 'Dark Cocoa 85%', 'Bourbon Vanilla'],
-    origin: 'Tarrazú, Costa Rica',
-    elevation: '1,900m MASL',
+    origin: 'Shevaroy Hills, Tamil Nadu, India',
+    elevation: '1,500m MASL',
     image: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?q=80&w=1000&auto=format&fit=crop',
     tag: '24h Steep'
   },
@@ -93,7 +93,7 @@ export const MENU_ITEMS: MenuItem[] = [
     id: 'm5',
     name: 'Ceremonial Uji Matcha Latte',
     category: 'elixir',
-    price: '€8.50',
+    price: '₹440',
     description: 'First harvest stone-ground green tea from Kyoto, hand-whisked with pistachio cream.',
     notes: ['Umami', 'Fresh Grass', 'Pistachio Velvet'],
     origin: 'Uji, Kyoto, Japan',
@@ -105,8 +105,8 @@ export const MENU_ITEMS: MenuItem[] = [
     id: 'm6',
     name: 'Bronte Pistachio Supreme Croissant',
     category: 'patisserie',
-    price: '€7.80',
-    description: '72-hour cultured butter lamination filled with Sicilian Bronte pistachio praline and crushed nuts.',
+    price: '₹360',
+    description: '72-hour cultured butter lamination filled with pistachio praline and crushed nuts.',
     notes: ['Bronte Pistachio', 'Normandy Butter 84%', 'Fleur de Sel'],
     image: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=1000&auto=format&fit=crop',
     tag: 'Chef Choice'
@@ -115,8 +115,8 @@ export const MENU_ITEMS: MenuItem[] = [
     id: 'm7',
     name: 'Valrhona Dark Ganache Pain au Chocolat',
     category: 'patisserie',
-    price: '€6.50',
-    description: 'Twice-baked viennoiserie stuffed with dual batons of Guanaja 70% dark chocolate and almond flake.',
+    price: '₹320',
+    description: 'Twice-baked viennoiserie stuffed with dual batons of Guanaja 70% dark chocolate and almond flakes.',
     notes: ['Guanaja 70%', 'Toasted Almond', 'Golden Caramel'],
     image: 'https://images.unsplash.com/photo-1608198093002-ad4e005484ec?q=80&w=1000&auto=format&fit=crop',
   },
@@ -124,9 +124,9 @@ export const MENU_ITEMS: MenuItem[] = [
     id: 'm8',
     name: 'Whipped Ricotta & Fig Brioche',
     category: 'brunch',
-    price: '€14.50',
-    description: 'Toasted sourdough brioche topped with lemon zest ricotta, mission figs, thyme honey, and walnuts.',
-    notes: ['Mission Fig', 'Thyme Honey', 'Whipped Ricotta'],
+    price: '₹580',
+    description: 'Toasted sourdough brioche topped with lemon zest ricotta, fresh figs, thyme honey, and walnuts.',
+    notes: ['Fresh Fig', 'Thyme Honey', 'Whipped Ricotta'],
     image: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=1000&auto=format&fit=crop',
     tag: 'All-Day Brunch'
   },
@@ -134,8 +134,8 @@ export const MENU_ITEMS: MenuItem[] = [
     id: 'm9',
     name: 'Avocado Tartine with Cured Yolk',
     category: 'brunch',
-    price: '€15.00',
-    description: 'Seeded rye loaf, citrus emulsion avocado mousse, shaved radishes, dukkah, and grated salt-cured yolk.',
+    price: '₹620',
+    description: 'Seeded sourdough rye, citrus emulsion avocado mousse, shaved radishes, dukkah, and grated salt-cured yolk.',
     notes: ['Egyptian Dukkah', 'Fermented Chili Oil', 'Seeded Rye'],
     image: 'https://images.unsplash.com/photo-1588137378633-dea1336ce1e2?q=80&w=1000&auto=format&fit=crop',
   }
@@ -145,10 +145,10 @@ export const JOURNEY_STEPS: JourneyStep[] = [
   {
     step: '01',
     title: 'ORIGIN & TERROIR',
-    subtitle: 'Ethical Direct-Trade Micro Lots',
-    description: 'We partner directly with generational farmers across Ethiopia, Panama, and Colombia who cultivate rare varietals at extreme high altitudes with biodynamic regenerative methods.',
-    details: ['1,800m – 2,200m Altitude', 'Single-Lot Traceability', 'Fair Share +40% Over Market Price'],
-    altitudeOrSpec: 'Volcanic Soil • Shade Grown',
+    subtitle: 'Ethical Direct-Trade Indian & Global Micro Lots',
+    description: 'We partner directly with generational farmers across the Western Ghats (Chikmagalur, Coorg, Wayanad) as well as Ethiopia and Panama cultivating shade-grown specialty varietals.',
+    details: ['1,400m – 1,800m Altitude', 'Single-Lot Traceability', 'Fair Share +50% Over Commodity Market'],
+    altitudeOrSpec: 'Shade Grown Under Silver Oak',
     image: 'https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?q=80&w=1000&auto=format&fit=crop'
   },
   {
@@ -172,9 +172,9 @@ export const JOURNEY_STEPS: JourneyStep[] = [
   {
     step: '04',
     title: 'THE SENSORY MOMENT',
-    subtitle: 'Served in Hand-Thrown Local Ceramics',
+    subtitle: 'Served in Hand-Thrown Terracotta & Stoneware',
     description: 'Coffee designed to be savored slowly. Accompanied by curated tasting cards, ambient soundscapes, and an atmosphere designed to let the outside world fade away.',
-    details: ['Bespoke Stoneware Vessels', 'Sensory Tasting Aroma Cards', 'Mindful Acoustic Environment'],
+    details: ['Handmade Indian Stoneware', 'Sensory Tasting Aroma Cards', 'Acoustic Rain & Jazz Lounges'],
     altitudeOrSpec: 'Artisanal Experience',
     image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1000&auto=format&fit=crop'
   }
@@ -183,7 +183,7 @@ export const JOURNEY_STEPS: JourneyStep[] = [
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: 'g1',
-    title: 'Architectural Sunken Seating',
+    title: 'Sunlit Courtyard Seating',
     category: 'Interior & Space',
     image: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1000&auto=format&fit=crop',
     aspect: 'tall',
@@ -191,7 +191,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     id: 'g2',
-    title: 'Morning Pourover Ritual',
+    title: 'Single Estate Pour-Over Ritual',
     category: 'Specialty Brew',
     image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=1000&auto=format&fit=crop',
     aspect: 'wide',
@@ -208,14 +208,14 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: 'g4',
     title: 'The Master Barista Craft',
-    category: 'People & Passion',
+    category: 'Specialty Brew',
     image: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=1000&auto=format&fit=crop',
     aspect: 'square',
     spanClass: 'col-span-1 md:col-span-1'
   },
   {
     id: 'g5',
-    title: 'Courtyard Twilight Atmosphere',
+    title: 'Evening Twilight Courtyard',
     category: 'Evening Moments',
     image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1000&auto=format&fit=crop',
     aspect: 'wide',
@@ -224,7 +224,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: 'g6',
     title: 'Cold Brew Extraction Tower',
-    category: 'Alchemy',
+    category: 'Specialty Brew',
     image: 'https://images.unsplash.com/photo-1517256064527-09c73fc73e38?q=80&w=1000&auto=format&fit=crop',
     aspect: 'tall',
     spanClass: 'col-span-1 md:col-span-1 md:row-span-2'
@@ -234,29 +234,29 @@ export const GALLERY_ITEMS: GalleryItem[] = [
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: 't1',
-    quote: "The kind of place where one espresso transforms into three hours of profound inspiration. The architectural silence is pure luxury.",
-    author: "Elena Rostova",
-    role: "Architect & Contributing Editor, Design Bureau",
+    quote: "The kind of place where one espresso transforms into three hours of profound inspiration. The architectural silence and Chikmagalur pour-over are pure luxury.",
+    author: "Ananya Deshmukh",
+    role: "Architect & Spatial Designer",
     rating: 5,
-    location: "Milan / Vienna",
+    location: "Bengaluru / Mumbai",
     image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop"
   },
   {
     id: 't2',
-    quote: "Their Geisha pour-over altered my entire perception of coffee acidity. It drinks like an exquisite vintage champagne with delicate notes of jasmine.",
-    author: "Marcello Vance",
-    role: "Sommelier & Culinary Author",
+    quote: "Their Baba Budan anaerobic pour-over altered my entire perception of Indian coffee acidity. It drinks like vintage floral nectar.",
+    author: "Rohan Malhotra",
+    role: "Culinary Writer & Coffee Critic",
     rating: 5,
-    location: "Paris",
+    location: "New Delhi",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop"
   },
   {
     id: 't3',
-    quote: "No rushing, no noise. Just warm travertine stone, natural light, and the finest pistachio pastry north of Sicily.",
-    author: "Sophia Lindqvist",
+    quote: "No rushing, no urban clamour. Just warm terracotta textures, natural sunlight, and the finest pistachio pastry in South India.",
+    author: "Kavya Menon",
     role: "Creative Director",
     rating: 5,
-    location: "Copenhagen",
+    location: "Bengaluru",
     image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=400&auto=format&fit=crop"
   }
 ];
@@ -265,21 +265,21 @@ export const EXPERIENCE_POINTS = [
   {
     number: '01',
     title: 'Micro-Roastery Laboratory',
-    desc: 'Transparent roasting bar where guests can observe precision bean profiling and engage with our head roaster.'
+    desc: 'Transparent roasting bar where guests observe shade-grown Western Ghats profiling and interact with head roasters.'
   },
   {
     number: '02',
     title: 'Artisanal Viennoiserie',
-    desc: 'Pastries rolled and baked continuously at 06:00, 11:00, and 15:00 using fermented AOP Normandy butter.'
+    desc: 'Pastries rolled and baked continuously at 07:30, 11:30, and 16:00 using cultured French-style butter.'
   },
   {
     number: '03',
     title: 'Acoustic Sanctuary',
-    desc: 'Sound-dampened acoustic clay walls, custom curated vinyl records, and bespoke ergonomic Japanese seating.'
+    desc: 'Sound-dampened acoustic clay walls, curated vintage vinyl collections, and ergonomic handcrafted seating.'
   },
   {
     number: '04',
-    title: 'Twilight Natural Wine & Botanicals',
-    desc: 'From 17:00 onwards, the atelier transitions into low-intervention biodynamic wines and coffee cocktails.'
+    title: 'Twilight Botanicals & Brews',
+    desc: 'From 17:30 onwards, the atelier transitions into coffee-infused botanical elixirs and artisanal cacao flights.'
   }
 ];

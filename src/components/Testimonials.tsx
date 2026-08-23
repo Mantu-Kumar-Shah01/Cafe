@@ -24,29 +24,29 @@ export const Testimonials: React.FC = () => {
   };
 
   return (
-    <section id="testimonials" className="py-24 md:py-36 px-6 sm:px-8 lg:px-12 bg-offWhite relative overflow-hidden">
+    <section id="testimonials" className="py-20 md:py-36 px-5 sm:px-8 lg:px-12 bg-offWhite relative overflow-hidden">
       {/* Background Section Index Number */}
-      <div className="absolute top-12 left-12 select-none pointer-events-none font-serif text-[120px] lg:text-[180px] font-bold text-warmSand/20 leading-none">
+      <div className="absolute top-10 left-6 select-none pointer-events-none font-serif text-[90px] sm:text-[140px] lg:text-[180px] font-bold text-warmSand/20 leading-none">
         06
       </div>
 
       <div className="max-w-5xl mx-auto relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 text-terracotta uppercase tracking-[0.3em] text-xs font-semibold mb-3">
+        <div className="text-center mb-10 md:mb-16">
+          <div className="inline-flex items-center gap-2 text-terracotta uppercase tracking-[0.3em] text-xs font-semibold mb-2 md:mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-terracotta" />
             <span>Accolades & Voices</span>
           </div>
-          <h2 className="font-serif text-4xl sm:text-5xl text-espresso tracking-tight">
+          <h2 className="font-serif text-3xl sm:text-5xl text-espresso tracking-tight">
             Words from the Atelier
           </h2>
         </div>
 
         {/* Testimonial Stage */}
-        <div className="relative bg-cream/70 rounded-3xl p-8 sm:p-14 md:p-18 border border-warmSand shadow-sm">
+        <div className="relative bg-cream/70 rounded-3xl p-6 sm:p-12 md:p-16 border border-warmSand shadow-sm">
           {/* Oversized Decorative Quotation Mark */}
-          <div className="absolute -top-7 left-10 w-14 h-14 rounded-full bg-terracotta text-offWhite flex items-center justify-center shadow-lg">
-            <Quote className="w-6 h-6 fill-current" />
+          <div className="absolute -top-5 left-6 sm:left-10 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-terracotta text-offWhite flex items-center justify-center shadow-lg">
+            <Quote className="w-5 h-5 sm:w-6 sm:h-6 fill-current" />
           </div>
 
           <AnimatePresence mode="wait">
@@ -55,51 +55,51 @@ export const Testimonials: React.FC = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.5 }}
-              className="space-y-8"
+              transition={{ duration: 0.4 }}
+              className="space-y-6 sm:space-y-8"
             >
               {/* Star Rating */}
-              <div className="flex items-center gap-1 text-terracotta">
+              <div className="flex items-center gap-1 text-terracotta pt-2 sm:pt-0">
                 {[...Array(current.rating)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-current" />
+                  <Star key={i} className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" />
                 ))}
               </div>
 
               {/* Editorial Large Quote */}
-              <blockquote className="font-serif text-2xl sm:text-3xl md:text-4xl text-espresso leading-relaxed italic font-normal">
+              <blockquote className="font-serif text-xl sm:text-3xl md:text-4xl text-espresso leading-relaxed italic font-normal">
                 "{current.quote}"
               </blockquote>
 
               {/* Author Info */}
-              <div className="flex items-center justify-between pt-6 border-t border-espresso/10 flex-wrap gap-4">
-                <div className="flex items-center gap-4">
+              <div className="flex items-center justify-between pt-4 sm:pt-6 border-t border-espresso/10 flex-wrap gap-4">
+                <div className="flex items-center gap-3 sm:gap-4">
                   <img
                     src={current.image}
                     alt={current.author}
-                    className="w-12 h-12 rounded-full object-cover border-2 border-warmSand"
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-warmSand"
                   />
                   <div>
-                    <h4 className="font-serif text-lg text-espresso font-semibold">
+                    <h4 className="font-serif text-base sm:text-lg text-espresso font-semibold">
                       {current.author}
                     </h4>
-                    <p className="text-xs text-espresso-muted font-sans font-light">
+                    <p className="text-[11px] sm:text-xs text-espresso-muted font-sans font-light">
                       {current.role} • <span className="text-terracotta">{current.location}</span>
                     </p>
                   </div>
                 </div>
 
                 {/* Navigation Arrows */}
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2 sm:gap-3">
                   <button
                     onClick={handlePrev}
-                    className="p-3 rounded-full border border-espresso/20 text-espresso hover:border-terracotta hover:text-terracotta hover:bg-terracotta/5 transition-colors"
+                    className="p-2.5 sm:p-3 rounded-full border border-espresso/20 text-espresso hover:border-terracotta hover:text-terracotta hover:bg-terracotta/5 transition-colors"
                     aria-label="Previous Testimonial"
                   >
                     <ChevronLeft className="w-4 h-4" />
                   </button>
                   <button
                     onClick={handleNext}
-                    className="p-3 rounded-full border border-espresso/20 text-espresso hover:border-terracotta hover:text-terracotta hover:bg-terracotta/5 transition-colors"
+                    className="p-2.5 sm:p-3 rounded-full border border-espresso/20 text-espresso hover:border-terracotta hover:text-terracotta hover:bg-terracotta/5 transition-colors"
                     aria-label="Next Testimonial"
                   >
                     <ChevronRight className="w-4 h-4" />
@@ -110,13 +110,13 @@ export const Testimonials: React.FC = () => {
           </AnimatePresence>
 
           {/* Dots Indicator */}
-          <div className="flex items-center justify-center gap-2 mt-8">
+          <div className="flex items-center justify-center gap-1.5 sm:gap-2 mt-6 sm:mt-8">
             {TESTIMONIALS.map((t, idx) => (
               <button
                 key={t.id}
                 onClick={() => setCurrentIndex(idx)}
                 className={`h-1.5 rounded-full transition-all duration-300 ${
-                  currentIndex === idx ? 'w-8 bg-terracotta' : 'w-2 bg-warmSand'
+                  currentIndex === idx ? 'w-6 sm:w-8 bg-terracotta' : 'w-2 bg-warmSand'
                 }`}
                 aria-label={`Go to slide ${idx + 1}`}
               />

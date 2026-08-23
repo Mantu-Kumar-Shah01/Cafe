@@ -12,6 +12,7 @@ import { Footer } from './components/Footer';
 import { ReservationModal } from './components/ReservationModal';
 import { TastingDrawer } from './components/TastingDrawer';
 import { CustomCursor } from './components/CustomCursor';
+import { MobileQuickBar } from './components/MobileQuickBar';
 import { MenuItem } from './data/cafeData';
 
 export const App: React.FC = () => {
@@ -47,7 +48,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-cream text-espresso selection:bg-terracotta selection:text-offWhite">
+    <div className="relative min-h-screen bg-cream text-espresso selection:bg-terracotta selection:text-offWhite pb-16 md:pb-0">
       {/* Subtle Custom Follower Cursor */}
       <CustomCursor />
 
@@ -76,6 +77,13 @@ export const App: React.FC = () => {
       {/* Footer */}
       <Footer />
 
+      {/* Mobile Floating Quick Dock */}
+      <MobileQuickBar
+        onOpenBooking={() => setIsBookingOpen(true)}
+        savedItemCount={savedItems.length}
+        onOpenWishlist={() => setIsTastingDrawerOpen(true)}
+      />
+
       {/* Reservation Modal */}
       <ReservationModal
         isOpen={isBookingOpen}
@@ -93,7 +101,7 @@ export const App: React.FC = () => {
 
       {/* Elegant Toast Feedback */}
       {toastMessage && (
-        <div className="fixed bottom-6 right-6 z-50 px-5 py-3 rounded-full bg-espresso text-cream text-xs font-sans shadow-xl border border-cream/10 flex items-center gap-2 animate-fade-in">
+        <div className="fixed bottom-20 md:bottom-6 right-6 z-50 px-5 py-3 rounded-full bg-espresso text-cream text-xs font-sans shadow-xl border border-cream/10 flex items-center gap-2 animate-fade-in">
           <span className="w-2 h-2 rounded-full bg-terracotta animate-pulse" />
           <span>{toastMessage}</span>
         </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Plus, Check, Sparkles, Coffee, CupSoda, Cake, UtensilsCrossed, ChevronDown } from 'lucide-react';
 import { MENU_ITEMS, MenuItem } from '../data/cafeData';
@@ -11,56 +11,69 @@ interface SignatureMenuProps {
 export const SignatureMenu: React.FC<SignatureMenuProps> = ({ onToggleWishlist, savedItemIds }) => {
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [hoveredItem, setHoveredItem] = useState<MenuItem | null>(MENU_ITEMS[0]);
+  const filterContainerRef = useRef<HTMLDivElement>(null);
 
   const categories = [
     { id: 'all', label: 'Curated All', icon: Sparkles },
-    { id: 'espresso', label: 'Specialty Espresso & Brew', icon: Coffee },
+    { id: 'espresso', label: 'Specialty Brew', icon: Coffee },
     { id: 'elixir', label: 'Signature Elixirs', icon: CupSoda },
-    { id: 'patisserie', label: 'Artisan Viennoiserie', icon: Cake },
+    { id: 'patisserie', label: 'Artisan Bakery', icon: Cake },
     { id: 'brunch', label: 'Savoury Plates', icon: UtensilsCrossed },
   ];
+
+  const handleCategoryClick = (catId: string, e: React.MouseEvent<HTMLButtonElement>) => {
+    setActiveCategory(catId);
+    e.currentTarget.scrollIntoView({
+      behavior: 'smooth',
+      inline: 'center',
+      block: 'nearest',
+    });
+  };
 
   const filteredItems = activeCategory === 'all'
     ? MENU_ITEMS
     : MENU_ITEMS.filter((item) => item.category === activeCategory);
 
   return (
-    <section id="menu" className="py-24 md:py-36 px-6 sm:px-8 lg:px-12 bg-offWhite relative overflow-hidden">
+    <section id="menu" className="py-20 md:py-36 px-4 sm:px-8 lg:px-12 bg-offWhite relative overflow-hidden">
       {/* Background Section Index Number */}
-      <div className="absolute top-12 right-12 select-none pointer-events-none font-serif text-[120px] lg:text-[180px] font-bold text-warmSand/20 leading-none">
+      <div className="absolute top-10 right-6 select-none pointer-events-none font-serif text-[90px] sm:text-[140px] lg:text-[180px] font-bold text-warmSand/20 leading-none">
         01
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-8 border-b border-espresso/10 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-16 pb-6 md:pb-8 border-b border-espresso/10 gap-4 md:gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 text-terracotta uppercase tracking-[0.3em] text-xs font-semibold mb-3">
+            <div className="inline-flex items-center gap-2 text-terracotta uppercase tracking-[0.3em] text-xs font-semibold mb-2 md:mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-terracotta" />
               <span>Sensory Tasting Menu</span>
             </div>
-            <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl text-espresso tracking-tight">
+            <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl text-espresso tracking-tight">
               Signature Flavours
             </h2>
           </div>
 
-          <p className="max-w-md text-espresso-muted text-sm sm:text-base font-sans font-light leading-relaxed">
-            Every creation is prepared on-demand with unhurried craft, dialed to single-gram precision, and sourced from single-estate producers.
+          <p className="max-w-md text-espresso-muted text-xs sm:text-base font-sans font-light leading-relaxed">
+            Every creation is dialed to single-gram precision with unhurried craft, roasted in micro-lots, and sourced from single-estate Indian and global farms.
           </p>
         </div>
 
-        {/* Category Filter Pills */}
-        <div className="flex items-center gap-2 sm:gap-3 overflow-x-auto pb-4 mb-12 scrollbar-none">
+        {/* Category Filter Pills (Auto-Scrolls into View on Click) */}
+        <div
+          ref={filterContainerRef}
+          className="flex items-center gap-2 sm:gap-3 overflow-x-auto pb-4 mb-8 sm:mb-12 scrollbar-none -mx-4 px-4 sm:mx-0 sm:px-0 scroll-smooth"
+        >
           {categories.map((cat) => {
             const Icon = cat.icon;
             const isActive = activeCategory === cat.id;
             return (
               <button
                 key={cat.id}
-                onClick={() => setActiveCategory(cat.id)}
-                className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs uppercase tracking-[0.18em] font-semibold whitespace-nowrap transition-all duration-300 ${
+                onClick={(e) => handleCategoryClick(cat.id, e)}
+                className={`inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-full text-xs uppercase tracking-[0.16em] font-semibold whitespace-nowrap transition-all duration-300 flex-shrink-0 ${
                   isActive
-                    ? 'bg-espresso text-cream shadow-md'
+                    ? 'bg-espresso text-cream shadow-md scale-[1.02]'
                     : 'bg-warmSand/30 text-espresso/80 hover:bg-warmSand/60'
                 }`}
               >
@@ -71,12 +84,12 @@ export const SignatureMenu: React.FC<SignatureMenuProps> = ({ onToggleWishlist, 
           })}
         </div>
 
-        {/* Editorial Layout: Left Scrollable List + Right Dynamic Sticky Preview */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Menu Items Scrollable Column */}
+        {/* Editorial Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+          {/* Menu Items Column */}
           <div className="lg:col-span-7 flex flex-col">
             {/* Scrollable Container with Custom Luxury Scrollbar */}
-            <div className="max-h-[620px] overflow-y-auto pr-3 sm:pr-5 menu-scroller divide-y divide-espresso/10 rounded-xl">
+            <div className="max-h-[640px] overflow-y-auto pr-1 sm:pr-4 menu-scroller divide-y divide-espresso/10 rounded-2xl">
               {filteredItems.map((item, index) => {
                 const isSaved = savedItemIds.includes(item.id);
                 const isHovered = hoveredItem?.id === item.id;
@@ -87,103 +100,98 @@ export const SignatureMenu: React.FC<SignatureMenuProps> = ({ onToggleWishlist, 
                     initial={{ opacity: 0, y: 15 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.05 }}
+                    transition={{ duration: 0.4, delay: index * 0.04 }}
                     onMouseEnter={() => setHoveredItem(item)}
-                    className={`group relative py-6 sm:py-7 transition-colors duration-300 px-4 -mx-2 rounded-xl cursor-pointer ${
-                      isHovered ? 'bg-warmSand/25' : 'hover:bg-warmSand/15'
+                    onClick={() => setHoveredItem(item)}
+                    className={`group relative py-4 sm:py-6 transition-all duration-300 px-3 sm:px-4 rounded-2xl cursor-pointer ${
+                      isHovered ? 'bg-warmSand/30 shadow-xs' : 'hover:bg-warmSand/15'
                     }`}
                   >
-                    <div className="flex items-start justify-between gap-4">
-                      {/* Item Info */}
-                      <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-1.5">
-                          <h3 className="font-serif text-xl sm:text-2xl text-espresso group-hover:text-terracotta transition-colors duration-200">
-                            {item.name}
-                          </h3>
-                          {item.tag && (
-                            <span className="px-2 py-0.5 rounded text-[9px] uppercase tracking-wider bg-warmSand text-espresso font-semibold font-sans">
-                              {item.tag}
-                            </span>
-                          )}
+                    <div className="flex items-start gap-3 sm:gap-4">
+                      {/* Mobile Thumbnail */}
+                      <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden bg-espresso/5 flex-shrink-0 lg:hidden mt-0.5">
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+
+                      {/* Item Content */}
+                      <div className="flex-1 min-w-0">
+                        {/* Title & Price Header Row */}
+                        <div className="flex items-baseline justify-between gap-2 mb-1">
+                          <div className="flex flex-wrap items-center gap-1.5 flex-1 min-w-0">
+                            <h3 className="font-serif text-base sm:text-xl md:text-2xl text-espresso group-hover:text-terracotta transition-colors duration-200 leading-snug break-words">
+                              {item.name}
+                            </h3>
+                            {item.tag && (
+                              <span className="px-2 py-0.5 rounded text-[8px] sm:text-[9px] uppercase tracking-wider bg-warmSand text-espresso font-semibold font-sans flex-shrink-0">
+                                {item.tag}
+                              </span>
+                            )}
+                          </div>
+
+                          <span className="font-serif text-base sm:text-xl md:text-2xl font-normal text-espresso flex-shrink-0 ml-1">
+                            {item.price}
+                          </span>
                         </div>
 
-                        <p className="text-xs sm:text-sm text-espresso-muted font-sans font-light max-w-lg mb-3">
+                        {/* Description */}
+                        <p className="text-xs text-espresso-muted font-sans font-light mb-2.5 line-clamp-2 sm:line-clamp-none">
                           {item.description}
                         </p>
 
-                        {/* Flavor Notes & Origin */}
-                        {item.notes && item.notes.length > 0 && (
-                          <div className="flex flex-wrap items-center gap-1.5">
-                            <span className="text-[10px] uppercase tracking-wider text-espresso/40 font-semibold mr-1">
-                              Notes:
-                            </span>
-                            {item.notes.map((note, i) => (
+                        {/* Flavor Notes & Action Bottom Row */}
+                        <div className="flex items-center justify-between gap-2 pt-1">
+                          <div className="flex flex-wrap items-center gap-1 overflow-hidden">
+                            {item.notes && item.notes.slice(0, 3).map((note, i) => (
                               <span
                                 key={i}
-                                className="text-[10px] tracking-wide px-2 py-0.5 rounded-full bg-cream text-espresso/70 border border-espresso/5"
+                                className="text-[9px] sm:text-[10px] tracking-wide px-2 py-0.5 rounded-full bg-cream text-espresso/70 border border-espresso/5 truncate"
                               >
                                 {note}
                               </span>
                             ))}
                           </div>
-                        )}
+
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              onToggleWishlist(item);
+                            }}
+                            className={`p-2 sm:p-2.5 rounded-full transition-all duration-200 shadow-xs flex-shrink-0 ${
+                              isSaved
+                                ? 'bg-terracotta text-offWhite'
+                                : 'bg-warmSand/40 text-espresso hover:bg-terracotta hover:text-offWhite'
+                            }`}
+                            title={isSaved ? 'Remove from tasting flight' : 'Add to tasting flight'}
+                            aria-label={`Save ${item.name} to tasting wishlist`}
+                          >
+                            {isSaved ? <Check className="w-3.5 h-3.5" /> : <Plus className="w-3.5 h-3.5" />}
+                          </button>
+                        </div>
                       </div>
-
-                      {/* Price & Action */}
-                      <div className="flex flex-col items-end justify-between h-full space-y-3">
-                        <span className="font-serif text-xl sm:text-2xl font-normal text-espresso">
-                          {item.price}
-                        </span>
-
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            onToggleWishlist(item);
-                          }}
-                          className={`p-2 rounded-full transition-all duration-200 ${
-                            isSaved
-                              ? 'bg-terracotta text-offWhite'
-                              : 'bg-warmSand/40 text-espresso hover:bg-terracotta hover:text-offWhite'
-                          }`}
-                          title={isSaved ? 'Remove from tasting list' : 'Add to tasting list'}
-                        >
-                          {isSaved ? <Check className="w-3.5 h-3.5" /> : <Plus className="w-3.5 h-3.5" />}
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* Mobile inline thumbnail */}
-                    <div className="lg:hidden mt-4 pt-3 flex items-center gap-3">
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className="w-16 h-16 rounded-lg object-cover shadow-sm"
-                      />
-                      {item.origin && (
-                        <span className="text-[11px] text-espresso/60 italic font-serif">
-                          Terroir: {item.origin}
-                        </span>
-                      )}
                     </div>
                   </motion.div>
                 );
               })}
             </div>
 
-            {/* List Bottom Scroll Hint */}
-            <div className="pt-4 flex items-center justify-between text-[11px] text-espresso/50 border-t border-espresso/10 mt-2">
+            {/* List Bottom Hint */}
+            <div className="pt-3 flex items-center justify-between text-[11px] text-espresso/50 border-t border-espresso/10 mt-3 px-1">
               <span className="font-mono">
-                Showing {filteredItems.length} curated selections
+                {filteredItems.length} curated selections
               </span>
-              <div className="flex items-center gap-1.5 text-terracotta font-medium">
-                <span>Scroll to explore full flight</span>
+              <div className="flex items-center gap-1 text-terracotta font-medium text-xs">
+                <span>Scroll for full flight</span>
                 <ChevronDown className="w-3.5 h-3.5 animate-bounce" />
               </div>
             </div>
           </div>
 
-          {/* Right Column: High-End Live Editorial Showcase (Desktop Sticky) */}
-          <div className="hidden lg:block lg:col-span-5 sticky top-32">
+          {/* Right Column: High-End Live Editorial Showcase (Desktop/Tablet Sticky) */}
+          <div className="hidden lg:block lg:col-span-5 sticky top-28">
             <AnimatePresence mode="wait">
               {hoveredItem && (
                 <motion.div
@@ -192,10 +200,10 @@ export const SignatureMenu: React.FC<SignatureMenuProps> = ({ onToggleWishlist, 
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.96 }}
                   transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                  className="rounded-2xl overflow-hidden bg-cream border border-warmSand shadow-xl p-6"
+                  className="rounded-3xl overflow-hidden bg-cream border border-warmSand shadow-xl p-6"
                 >
-                  {/* Photo with slight scale */}
-                  <div className="relative aspect-[4/3] rounded-xl overflow-hidden mb-6 bg-espresso/5">
+                  {/* Photo */}
+                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-6 bg-espresso/5">
                     <img
                       src={hoveredItem.image}
                       alt={hoveredItem.name}
@@ -223,21 +231,21 @@ export const SignatureMenu: React.FC<SignatureMenuProps> = ({ onToggleWishlist, 
 
                     {hoveredItem.origin && (
                       <div className="pt-3 border-t border-espresso/10 flex items-center justify-between text-xs">
-                        <span className="text-espresso/60 uppercase tracking-wider text-[10px]">Origin:</span>
+                        <span className="text-espresso/60 uppercase tracking-wider text-[10px]">Terroir:</span>
                         <span className="font-serif italic text-espresso">{hoveredItem.origin}</span>
                       </div>
                     )}
 
                     {hoveredItem.elevation && (
                       <div className="flex items-center justify-between text-xs">
-                        <span className="text-espresso/60 uppercase tracking-wider text-[10px]">Elevation:</span>
+                        <span className="text-espresso/60 uppercase tracking-wider text-[10px]">Altitude:</span>
                         <span className="font-sans text-espresso font-medium">{hoveredItem.elevation}</span>
                       </div>
                     )}
 
                     <button
                       onClick={() => onToggleWishlist(hoveredItem)}
-                      className="w-full py-3 mt-2 rounded-full border border-terracotta text-terracotta hover:bg-terracotta hover:text-offWhite uppercase tracking-[0.2em] text-xs font-semibold transition-all duration-300 flex items-center justify-center gap-2"
+                      className="w-full py-3.5 mt-2 rounded-full border border-terracotta text-terracotta hover:bg-terracotta hover:text-offWhite uppercase tracking-[0.2em] text-xs font-semibold transition-all duration-300 flex items-center justify-center gap-2"
                     >
                       <span>{savedItemIds.includes(hoveredItem.id) ? 'In Tasting Wishlist' : 'Add to Tasting Wishlist'}</span>
                       <ArrowRight className="w-3.5 h-3.5" />

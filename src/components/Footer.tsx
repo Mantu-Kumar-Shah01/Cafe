@@ -48,7 +48,7 @@ export const Footer: React.FC = () => {
               </span>
             </div>
             <p className="text-xs text-cream/70 font-sans font-light leading-relaxed max-w-sm">
-              Single-origin micro lots, slow artisanal baking, and acoustic tranquility in Milan. An homage to the deliberate ritual of slowing down.
+              Single-origin micro lots, slow artisanal baking, and acoustic tranquility in Bengaluru. An homage to the deliberate ritual of slowing down.
             </p>
             <div className="pt-2 flex items-center gap-3 text-cream/80">
               <a
@@ -151,7 +151,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Credits & Back to Top */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-cream/50 font-sans">
           <div>
-            © {new Date().getFullYear()} L'ÉLIXIR ATELIER. All rights reserved. Slow living in Milano.
+            © {new Date().getFullYear()} L'ÉLIXIR ATELIER. All rights reserved. Slow living in Bengaluru, India.
           </div>
 
           <div className="flex items-center gap-6">

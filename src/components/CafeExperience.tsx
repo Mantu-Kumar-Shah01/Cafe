@@ -120,10 +120,10 @@ export const CafeExperience: React.FC<CafeExperienceProps> = ({ onOpenBooking })
             >
               <button
                 onClick={onOpenBooking}
-                className="inline-flex items-center gap-3 px-8 py-3.5 rounded-full bg-espresso text-cream hover:bg-terracotta transition-all duration-300 text-xs uppercase tracking-[0.2em] font-semibold group shadow-md"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 py-3.5 rounded-full bg-espresso text-cream hover:bg-terracotta transition-all duration-300 text-xs uppercase tracking-[0.16em] sm:tracking-[0.2em] font-semibold group shadow-md whitespace-nowrap"
               >
-                <span>Reserve Your Table Sanctuary</span>
-                <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-warmSand" />
+                <span className="whitespace-nowrap">Reserve Table Sanctuary</span>
+                <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-warmSand flex-shrink-0" />
               </button>
             </motion.div>
           </div>

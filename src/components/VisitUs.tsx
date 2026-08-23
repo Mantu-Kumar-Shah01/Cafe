@@ -109,18 +109,18 @@ export const VisitUs: React.FC<VisitUsProps> = ({ onOpenBooking }) => {
             <div className="flex flex-wrap items-center gap-3 sm:gap-4 mt-8 sm:mt-10">
               <button
                 onClick={handleCopyAddress}
-                className="w-full sm:w-auto px-6 py-3.5 rounded-full border border-espresso/20 hover:border-espresso text-espresso text-xs font-semibold uppercase tracking-[0.18em] transition-colors inline-flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-full border border-espresso/20 hover:border-espresso text-espresso text-xs font-semibold uppercase tracking-[0.18em] transition-colors inline-flex items-center justify-center gap-2 whitespace-nowrap"
               >
-                {copied ? <Check className="w-3.5 h-3.5 text-sage" /> : <Navigation className="w-3.5 h-3.5 text-terracotta" />}
-                <span>{copied ? 'Address Copied!' : 'Copy Address'}</span>
+                {copied ? <Check className="w-3.5 h-3.5 text-sage flex-shrink-0" /> : <Navigation className="w-3.5 h-3.5 text-terracotta flex-shrink-0" />}
+                <span className="whitespace-nowrap">{copied ? 'Address Copied!' : 'Copy Address'}</span>
               </button>
 
               <button
                 onClick={onOpenBooking}
-                className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-terracotta hover:bg-terracotta-hover text-offWhite text-xs font-semibold uppercase tracking-[0.18em] transition-all duration-300 shadow-md inline-flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-terracotta hover:bg-terracotta-hover text-offWhite text-xs font-semibold uppercase tracking-[0.18em] transition-all duration-300 shadow-md inline-flex items-center justify-center gap-2 whitespace-nowrap"
               >
-                <CalendarCheck className="w-3.5 h-3.5" />
-                <span>Reserve a Table</span>
+                <CalendarCheck className="w-3.5 h-3.5 flex-shrink-0" />
+                <span className="whitespace-nowrap">Reserve a Table</span>
               </button>
             </div>
           </div>

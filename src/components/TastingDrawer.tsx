@@ -97,10 +97,10 @@ export const TastingDrawer: React.FC<TastingDrawerProps> = ({
               onProceedToBooking();
             }}
             disabled={savedItems.length === 0}
-            className="w-full py-4 rounded-full bg-terracotta hover:bg-terracotta-hover text-offWhite text-xs uppercase tracking-[0.2em] font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            className="w-full py-4 rounded-full bg-terracotta hover:bg-terracotta-hover text-offWhite text-xs uppercase tracking-[0.18em] font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 whitespace-nowrap"
           >
-            <span>Book Table with Wishlist</span>
-            <ArrowUpRight className="w-4 h-4" />
+            <span className="whitespace-nowrap">Book Table with Wishlist</span>
+            <ArrowUpRight className="w-4 h-4 flex-shrink-0" />
           </button>
         </div>
       </motion.div>

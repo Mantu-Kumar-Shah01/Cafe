@@ -84,18 +84,18 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
           >
             <a
               href="#menu"
-              className="w-full sm:w-auto text-center px-7 sm:px-8 py-3.5 sm:py-4 rounded-full bg-espresso text-cream hover:bg-espresso-light text-xs font-semibold uppercase tracking-[0.2em] transition-all duration-300 shadow-md hover:shadow-xl group inline-flex items-center justify-center gap-2"
+              className="w-full sm:w-auto text-center px-7 sm:px-8 py-3.5 sm:py-4 rounded-full bg-espresso text-cream hover:bg-espresso-light text-xs font-semibold uppercase tracking-[0.2em] transition-all duration-300 shadow-md hover:shadow-xl group inline-flex items-center justify-center gap-2 whitespace-nowrap"
             >
-              <span>Explore Menu</span>
-              <ArrowDown className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-y-0.5 text-terracotta" />
+              <span className="whitespace-nowrap">Explore Menu</span>
+              <ArrowDown className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-y-0.5 text-terracotta flex-shrink-0" />
             </a>
 
             <button
               onClick={onOpenBooking}
-              className="w-full sm:w-auto px-7 sm:px-8 py-3.5 sm:py-4 rounded-full border border-espresso/30 text-espresso hover:border-terracotta hover:text-terracotta text-xs font-semibold uppercase tracking-[0.2em] transition-all duration-300 group inline-flex items-center justify-center gap-2 hover:bg-terracotta/5"
+              className="w-full sm:w-auto px-7 sm:px-8 py-3.5 sm:py-4 rounded-full border border-espresso/30 text-espresso hover:border-terracotta hover:text-terracotta text-xs font-semibold uppercase tracking-[0.2em] transition-all duration-300 group inline-flex items-center justify-center gap-2 hover:bg-terracotta/5 whitespace-nowrap"
             >
-              <span>Book a Table</span>
-              <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <span className="whitespace-nowrap">Book a Table</span>
+              <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 flex-shrink-0" />
             </button>
           </motion.div>
         </div>

@@ -139,13 +139,13 @@ export const CoffeeJourney: React.FC = () => {
                 </div>
 
                 {/* Next Step Action Button */}
-                <div className="pt-4 flex items-center gap-4">
+                <div className="pt-4 flex flex-wrap items-center gap-3 sm:gap-4">
                   <button
                     onClick={() => setActiveStep((prev) => (prev + 1) % JOURNEY_STEPS.length)}
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-terracotta hover:bg-terracotta-hover text-offWhite uppercase tracking-[0.2em] text-xs font-semibold transition-colors"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-terracotta hover:bg-terracotta-hover text-offWhite uppercase tracking-[0.18em] text-xs font-semibold transition-colors whitespace-nowrap"
                   >
-                    <span>{activeStep === 3 ? 'Restart Journey' : 'Next Stage'}</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <span className="whitespace-nowrap">{activeStep === 3 ? 'Restart Journey' : 'Next Stage'}</span>
+                    <ArrowRight className="w-3.5 h-3.5 flex-shrink-0" />
                   </button>
                   <span className="text-xs text-cream/40 font-mono">
                     Dialed with micro-lot precision

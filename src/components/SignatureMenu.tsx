@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Plus, Check, Sparkles, Coffee, CupSoda, Cake, UtensilsCrossed } from 'lucide-react';
+import { ArrowRight, Plus, Check, Sparkles, Coffee, CupSoda, Cake, UtensilsCrossed, ChevronDown } from 'lucide-react';
 import { MENU_ITEMS, MenuItem } from '../data/cafeData';
 
 interface SignatureMenuProps {
@@ -71,101 +71,115 @@ export const SignatureMenu: React.FC<SignatureMenuProps> = ({ onToggleWishlist, 
           })}
         </div>
 
-        {/* Editorial Layout: Left List + Right Dynamic Floating Preview */}
+        {/* Editorial Layout: Left Scrollable List + Right Dynamic Sticky Preview */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Menu Items Interactive List */}
-          <div className="lg:col-span-7 divide-y divide-espresso/10">
-            {filteredItems.map((item, index) => {
-              const isSaved = savedItemIds.includes(item.id);
-              const isHovered = hoveredItem?.id === item.id;
+          {/* Menu Items Scrollable Column */}
+          <div className="lg:col-span-7 flex flex-col">
+            {/* Scrollable Container with Custom Luxury Scrollbar */}
+            <div className="max-h-[620px] overflow-y-auto pr-3 sm:pr-5 menu-scroller divide-y divide-espresso/10 rounded-xl">
+              {filteredItems.map((item, index) => {
+                const isSaved = savedItemIds.includes(item.id);
+                const isHovered = hoveredItem?.id === item.id;
 
-              return (
-                <motion.div
-                  key={item.id}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.05 }}
-                  onMouseEnter={() => setHoveredItem(item)}
-                  className={`group relative py-6 sm:py-7 transition-colors duration-300 px-4 -mx-4 rounded-xl cursor-pointer ${
-                    isHovered ? 'bg-warmSand/20' : 'hover:bg-warmSand/10'
-                  }`}
-                >
-                  <div className="flex items-start justify-between gap-4">
-                    {/* Item Info */}
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-1.5">
-                        <h3 className="font-serif text-xl sm:text-2xl text-espresso group-hover:text-terracotta transition-colors duration-200">
-                          {item.name}
-                        </h3>
-                        {item.tag && (
-                          <span className="px-2 py-0.5 rounded text-[9px] uppercase tracking-wider bg-warmSand text-espresso font-semibold font-sans">
-                            {item.tag}
-                          </span>
+                return (
+                  <motion.div
+                    key={item.id}
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.05 }}
+                    onMouseEnter={() => setHoveredItem(item)}
+                    className={`group relative py-6 sm:py-7 transition-colors duration-300 px-4 -mx-2 rounded-xl cursor-pointer ${
+                      isHovered ? 'bg-warmSand/25' : 'hover:bg-warmSand/15'
+                    }`}
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      {/* Item Info */}
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-1.5">
+                          <h3 className="font-serif text-xl sm:text-2xl text-espresso group-hover:text-terracotta transition-colors duration-200">
+                            {item.name}
+                          </h3>
+                          {item.tag && (
+                            <span className="px-2 py-0.5 rounded text-[9px] uppercase tracking-wider bg-warmSand text-espresso font-semibold font-sans">
+                              {item.tag}
+                            </span>
+                          )}
+                        </div>
+
+                        <p className="text-xs sm:text-sm text-espresso-muted font-sans font-light max-w-lg mb-3">
+                          {item.description}
+                        </p>
+
+                        {/* Flavor Notes & Origin */}
+                        {item.notes && item.notes.length > 0 && (
+                          <div className="flex flex-wrap items-center gap-1.5">
+                            <span className="text-[10px] uppercase tracking-wider text-espresso/40 font-semibold mr-1">
+                              Notes:
+                            </span>
+                            {item.notes.map((note, i) => (
+                              <span
+                                key={i}
+                                className="text-[10px] tracking-wide px-2 py-0.5 rounded-full bg-cream text-espresso/70 border border-espresso/5"
+                              >
+                                {note}
+                              </span>
+                            ))}
+                          </div>
                         )}
                       </div>
 
-                      <p className="text-xs sm:text-sm text-espresso-muted font-sans font-light max-w-lg mb-3">
-                        {item.description}
-                      </p>
+                      {/* Price & Action */}
+                      <div className="flex flex-col items-end justify-between h-full space-y-3">
+                        <span className="font-serif text-xl sm:text-2xl font-normal text-espresso">
+                          {item.price}
+                        </span>
 
-                      {/* Flavor Notes & Origin */}
-                      {item.notes && item.notes.length > 0 && (
-                        <div className="flex flex-wrap items-center gap-1.5">
-                          <span className="text-[10px] uppercase tracking-wider text-espresso/40 font-semibold mr-1">
-                            Notes:
-                          </span>
-                          {item.notes.map((note, i) => (
-                            <span
-                              key={i}
-                              className="text-[10px] tracking-wide px-2 py-0.5 rounded-full bg-cream text-espresso/70 border border-espresso/5"
-                            >
-                              {note}
-                            </span>
-                          ))}
-                        </div>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            onToggleWishlist(item);
+                          }}
+                          className={`p-2 rounded-full transition-all duration-200 ${
+                            isSaved
+                              ? 'bg-terracotta text-offWhite'
+                              : 'bg-warmSand/40 text-espresso hover:bg-terracotta hover:text-offWhite'
+                          }`}
+                          title={isSaved ? 'Remove from tasting list' : 'Add to tasting list'}
+                        >
+                          {isSaved ? <Check className="w-3.5 h-3.5" /> : <Plus className="w-3.5 h-3.5" />}
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Mobile inline thumbnail */}
+                    <div className="lg:hidden mt-4 pt-3 flex items-center gap-3">
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="w-16 h-16 rounded-lg object-cover shadow-sm"
+                      />
+                      {item.origin && (
+                        <span className="text-[11px] text-espresso/60 italic font-serif">
+                          Terroir: {item.origin}
+                        </span>
                       )}
                     </div>
+                  </motion.div>
+                );
+              })}
+            </div>
 
-                    {/* Price & Action */}
-                    <div className="flex flex-col items-end justify-between h-full space-y-3">
-                      <span className="font-serif text-xl sm:text-2xl font-normal text-espresso">
-                        {item.price}
-                      </span>
-
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          onToggleWishlist(item);
-                        }}
-                        className={`p-2 rounded-full transition-all duration-200 ${
-                          isSaved
-                            ? 'bg-terracotta text-offWhite'
-                            : 'bg-warmSand/40 text-espresso hover:bg-terracotta hover:text-offWhite'
-                        }`}
-                        title={isSaved ? 'Remove from tasting list' : 'Add to tasting list'}
-                      >
-                        {isSaved ? <Check className="w-3.5 h-3.5" /> : <Plus className="w-3.5 h-3.5" />}
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Mobile inline thumbnail */}
-                  <div className="lg:hidden mt-4 pt-3 flex items-center gap-3">
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="w-16 h-16 rounded-lg object-cover shadow-sm"
-                    />
-                    {item.origin && (
-                      <span className="text-[11px] text-espresso/60 italic font-serif">
-                        Terroir: {item.origin}
-                      </span>
-                    )}
-                  </div>
-                </motion.div>
-              );
-            })}
+            {/* List Bottom Scroll Hint */}
+            <div className="pt-4 flex items-center justify-between text-[11px] text-espresso/50 border-t border-espresso/10 mt-2">
+              <span className="font-mono">
+                Showing {filteredItems.length} curated selections
+              </span>
+              <div className="flex items-center gap-1.5 text-terracotta font-medium">
+                <span>Scroll to explore full flight</span>
+                <ChevronDown className="w-3.5 h-3.5 animate-bounce" />
+              </div>
+            </div>
           </div>
 
           {/* Right Column: High-End Live Editorial Showcase (Desktop Sticky) */}

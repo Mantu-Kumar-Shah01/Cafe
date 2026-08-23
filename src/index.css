@@ -59,6 +59,22 @@
   }
 }
 
+/* Dedicated Menu Scrollbar */
+.menu-scroller::-webkit-scrollbar {
+  width: 5px;
+}
+.menu-scroller::-webkit-scrollbar-track {
+  background: rgba(232, 216, 195, 0.3);
+  border-radius: 9999px;
+}
+.menu-scroller::-webkit-scrollbar-thumb {
+  background: #B96545;
+  border-radius: 9999px;
+}
+.menu-scroller::-webkit-scrollbar-thumb:hover {
+  background: #A35436;
+}
+
 /* Luxury Grain Overlay */
 .bg-grain {
   background-image: radial-gradient(rgba(28, 23, 20, 0.04) 1px, transparent 0);

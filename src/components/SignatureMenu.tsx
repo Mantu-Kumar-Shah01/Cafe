@@ -190,8 +190,8 @@ export const SignatureMenu: React.FC<SignatureMenuProps> = ({ onToggleWishlist, 
             </div>
           </div>
 
-          {/* Right Column: High-End Live Editorial Showcase (Desktop/Tablet Sticky) */}
-          <div className="hidden lg:block lg:col-span-5 sticky top-28">
+          {/* Right Column: High-End Live Editorial Showcase (Fits Viewport Height) */}
+          <div className="hidden lg:block lg:col-span-5 sticky top-24">
             <AnimatePresence mode="wait">
               {hoveredItem && (
                 <motion.div
@@ -199,38 +199,38 @@ export const SignatureMenu: React.FC<SignatureMenuProps> = ({ onToggleWishlist, 
                   initial={{ opacity: 0, scale: 0.96 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.96 }}
-                  transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                  className="rounded-3xl overflow-hidden bg-cream border border-warmSand shadow-xl p-6"
+                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                  className="rounded-3xl overflow-hidden bg-cream border border-warmSand shadow-xl p-5"
                 >
-                  {/* Photo */}
-                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-6 bg-espresso/5">
+                  {/* Photo (Compact to fit vh) */}
+                  <div className="relative aspect-[16/9] max-h-[180px] rounded-2xl overflow-hidden mb-3.5 bg-espresso/5">
                     <img
                       src={hoveredItem.image}
                       alt={hoveredItem.name}
                       className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                     />
-                    <div className="absolute top-3 right-3 px-3 py-1 rounded-full glass-card-dark text-offWhite text-xs font-serif font-semibold">
+                    <div className="absolute top-2.5 right-2.5 px-2.5 py-0.5 rounded-full glass-card-dark text-offWhite text-xs font-serif font-semibold">
                       {hoveredItem.price}
                     </div>
                   </div>
 
                   {/* Editorial Details */}
-                  <div className="space-y-4">
+                  <div className="space-y-2.5">
                     <div>
-                      <span className="text-[10px] uppercase tracking-[0.25em] text-terracotta font-semibold">
+                      <span className="text-[9px] uppercase tracking-[0.25em] text-terracotta font-semibold">
                         Selected Tasting
                       </span>
-                      <h4 className="font-serif text-2xl text-espresso font-normal mt-1">
+                      <h4 className="font-serif text-xl text-espresso font-normal leading-snug">
                         {hoveredItem.name}
                       </h4>
                     </div>
 
-                    <p className="text-xs text-espresso-muted leading-relaxed font-sans font-light">
+                    <p className="text-xs text-espresso-muted leading-relaxed font-sans font-light line-clamp-2">
                       {hoveredItem.description}
                     </p>
 
                     {hoveredItem.origin && (
-                      <div className="pt-3 border-t border-espresso/10 flex items-center justify-between text-xs">
+                      <div className="pt-2 border-t border-espresso/10 flex items-center justify-between text-xs">
                         <span className="text-espresso/60 uppercase tracking-wider text-[10px]">Terroir:</span>
                         <span className="font-serif italic text-espresso">{hoveredItem.origin}</span>
                       </div>
@@ -245,10 +245,10 @@ export const SignatureMenu: React.FC<SignatureMenuProps> = ({ onToggleWishlist, 
 
                     <button
                       onClick={() => onToggleWishlist(hoveredItem)}
-                      className="w-full py-3.5 mt-2 rounded-full border border-terracotta text-terracotta hover:bg-terracotta hover:text-offWhite uppercase tracking-[0.2em] text-xs font-semibold transition-all duration-300 flex items-center justify-center gap-2"
+                      className="w-full py-2.5 mt-1 rounded-full border border-terracotta text-terracotta hover:bg-terracotta hover:text-offWhite uppercase tracking-[0.16em] text-xs font-semibold transition-all duration-300 flex items-center justify-center gap-2 whitespace-nowrap"
                     >
-                      <span>{savedItemIds.includes(hoveredItem.id) ? 'In Tasting Wishlist' : 'Add to Tasting Wishlist'}</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <span className="whitespace-nowrap">{savedItemIds.includes(hoveredItem.id) ? 'In Tasting Wishlist' : 'Add to Tasting Wishlist'}</span>
+                      <ArrowRight className="w-3.5 h-3.5 flex-shrink-0" />
                     </button>
                   </div>
                 </motion.div>

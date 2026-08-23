@@ -103,10 +103,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, savedItemCount = 
               </span>
             </button>
 
-            {/* Menu Drawer Toggle */}
+            {/* Menu Drawer Toggle (Mobile only) */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="p-2 rounded-full hover:bg-espresso/5 text-espresso transition-colors focus:outline-none"
+              className="md:hidden p-2 rounded-full hover:bg-espresso/5 text-espresso transition-colors focus:outline-none"
               aria-label={menuOpen ? 'Close Menu' : 'Open Full Menu'}
             >
               {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

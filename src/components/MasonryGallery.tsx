@@ -29,7 +29,7 @@ export const MasonryGallery: React.FC = () => {
               <span>Visual Anthology</span>
             </div>
             <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl text-espresso tracking-tight">
-              Life at L'Élixir
+              Life at CafeDemo
             </h2>
           </div>
 
@@ -136,7 +136,7 @@ export const MasonryGallery: React.FC = () => {
                   </h3>
                 </div>
                 <div className="hidden sm:block text-xs font-mono text-espresso/60 tracking-wider">
-                  L'ÉLIXIR ARCHIVES
+                  CAFÉDEMO ARCHIVES
                 </div>
               </div>
             </motion.div>

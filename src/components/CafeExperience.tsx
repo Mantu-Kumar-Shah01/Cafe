@@ -81,7 +81,7 @@ export const CafeExperience: React.FC<CafeExperienceProps> = ({ onOpenBooking })
               </h2>
 
               <p className="text-espresso-muted text-base sm:text-lg font-sans font-light leading-relaxed mb-10">
-                Designed with minimalist Japanese-Nordic sensibilities, L'Élixir is an intentional pause in the pace of the city. 
+                Designed with minimalist Japanese-Nordic sensibilities, CafeDemo is an intentional pause in the pace of the city. 
                 Natural travertine surfaces, custom acoustic timber louvers, and warm diffused sunlight invite you to savor every sip in tranquility.
               </p>
             </motion.div>

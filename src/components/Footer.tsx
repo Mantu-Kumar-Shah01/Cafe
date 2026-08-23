@@ -40,8 +40,8 @@ export const Footer: React.FC = () => {
           {/* Brand & Mission */}
           <div className="lg:col-span-4 space-y-4">
             <div className="flex flex-col items-start">
-              <span className="font-accent tracking-[0.25em] text-2xl font-semibold text-cream uppercase">
-                L'ÉLIXIR
+              <span className="font-accent tracking-[0.22em] text-2xl font-semibold text-cream uppercase">
+                CAFÉDEMO
               </span>
               <span className="font-sans text-[10px] tracking-[0.35em] text-warmSand/70 uppercase font-medium -mt-1">
                 Specialty Atelier
@@ -151,7 +151,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Credits & Back to Top */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-cream/50 font-sans">
           <div>
-            © {new Date().getFullYear()} L'ÉLIXIR ATELIER. All rights reserved. Slow living in Bengaluru, India.
+            © {new Date().getFullYear()} CAFÉDEMO. All rights reserved. Slow living in Bengaluru, India.
           </div>
 
           <div className="flex items-center gap-6">

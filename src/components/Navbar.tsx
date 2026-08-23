@@ -53,10 +53,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, savedItemCount = 
           <a
             href="#"
             className="group flex flex-col items-start focus:outline-none"
-            aria-label="L'Élixir Atelier Home"
+            aria-label="CafeDemo Specialty Atelier Home"
           >
-            <span className="font-accent tracking-[0.25em] text-lg sm:text-xl md:text-2xl font-semibold text-espresso uppercase group-hover:text-terracotta transition-colors duration-300">
-              L'ÉLIXIR
+            <span className="font-accent tracking-[0.22em] text-lg sm:text-xl md:text-2xl font-semibold text-espresso uppercase group-hover:text-terracotta transition-colors duration-300">
+              CAFÉDEMO
             </span>
             <span className="font-sans text-[9px] tracking-[0.35em] text-espresso/60 uppercase font-medium -mt-1 group-hover:text-espresso transition-colors">
               Specialty Atelier

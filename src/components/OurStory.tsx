@@ -39,7 +39,7 @@ export const OurStory: React.FC = () => {
 
               <div className="space-y-5 text-espresso-muted font-sans font-light text-base sm:text-lg leading-relaxed">
                 <p>
-                  Founded by two architects and a certified Q-Grader, L'Élixir was conceived not merely as a coffee house, but as a deliberate architectural pause in urban life.
+                  Founded by two architects and a certified Q-Grader, CafeDemo was conceived not merely as a coffee house, but as a deliberate architectural pause in urban life.
                 </p>
                 <p className="text-sm sm:text-base">
                   We believe that great coffee is an art of patience. From the volcanic altitudes of Yirgacheffe to the thermal calibration of our bespoke roaster, every detail exists to elevate the simple ritual of drinking coffee into a transcendent, sensory experience.

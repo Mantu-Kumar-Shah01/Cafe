@@ -1,4 +1,4 @@
-# L'ÉLIXIR ATELIER — Modern Luxury Café & Specialty Roastery
+# CafeDemo — Modern Luxury Café & Specialty Roastery
 
 A high-end, editorial modern café web application crafted with **React 18**, **TypeScript**, **Tailwind CSS**, and **Framer Motion**.
 

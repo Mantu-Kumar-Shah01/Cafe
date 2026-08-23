@@ -100,7 +100,7 @@ export const VisitUs: React.FC<VisitUsProps> = ({ onOpenBooking }) => {
                   <p className="font-serif text-base sm:text-lg text-espresso">
                     <a href="tel:+918049658820" className="hover:text-terracotta transition-colors">+91 80 4965 8820</a>
                   </p>
-                  <p className="text-xs text-espresso-muted">atelier@lelixir-coffee.in</p>
+                  <p className="text-xs text-espresso-muted">concierge@cafedemo.in</p>
                 </div>
               </div>
             </div>
@@ -130,7 +130,7 @@ export const VisitUs: React.FC<VisitUsProps> = ({ onOpenBooking }) => {
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-warmSand aspect-[16/11]">
               <img
                 src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200&auto=format&fit=crop"
-                alt="Exterior Courtyard of L'Élixir Atelier Bengaluru"
+                alt="Exterior Courtyard of CafeDemo Bengaluru"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-espresso/60 via-transparent to-transparent" />

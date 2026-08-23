@@ -51,7 +51,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({ isOpen, onCl
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-espresso/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-espresso/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-6">
       <motion.div
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -83,7 +83,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({ isOpen, onCl
         </div>
 
         {/* Modal Scrollable Body */}
-        <div className="p-5 sm:p-8 overflow-y-auto flex-1 menu-scroller">
+        <div className="p-4 sm:p-8 overflow-y-auto flex-1 menu-scroller">
           {!isSubmitted ? (
             <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
               {/* Step 1: Party & Area */}
@@ -91,7 +91,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({ isOpen, onCl
                 <div className="space-y-5 sm:space-y-6">
                   {/* Party Size */}
                   <div>
-                    <label className="block text-xs uppercase tracking-[0.2em] font-semibold text-espresso mb-2.5">
+                    <label className="block text-xs uppercase tracking-[0.16em] font-semibold text-espresso mb-2.5">
                       1. Select Party Size
                     </label>
                     <div className="grid grid-cols-4 gap-2 sm:gap-3">
@@ -107,7 +107,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({ isOpen, onCl
                           }`}
                         >
                           <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                          <span>{num === 6 ? '5+ Guests' : `${num} ${num === 1 ? 'Guest' : 'Guests'}`}</span>
+                          <span className="whitespace-nowrap">{num === 6 ? '5+ Guests' : `${num} ${num === 1 ? 'Guest' : 'Guests'}`}</span>
                         </button>
                       ))}
                     </div>
@@ -115,7 +115,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({ isOpen, onCl
 
                   {/* Seating Area Preference */}
                   <div>
-                    <label className="block text-xs uppercase tracking-[0.2em] font-semibold text-espresso mb-2.5">
+                    <label className="block text-xs uppercase tracking-[0.16em] font-semibold text-espresso mb-2.5">
                       2. Seating Atmosphere
                     </label>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
@@ -151,10 +151,10 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({ isOpen, onCl
                     <button
                       type="button"
                       onClick={() => setStep(2)}
-                      className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-espresso text-cream text-xs uppercase tracking-[0.2em] font-semibold hover:bg-espresso-light transition-colors flex items-center justify-center gap-2 shadow-sm"
+                      className="w-full sm:w-auto px-5 sm:px-7 py-3 sm:py-3.5 rounded-full bg-espresso text-cream text-[11px] sm:text-xs uppercase tracking-[0.14em] sm:tracking-[0.18em] font-semibold hover:bg-espresso-light transition-colors flex items-center justify-center gap-2 shadow-sm whitespace-nowrap"
                     >
-                      <span>Continue to Date & Time</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <span className="whitespace-nowrap">Continue to Date & Time</span>
+                      <ArrowRight className="w-3.5 h-3.5 flex-shrink-0" />
                     </button>
                   </div>
                 </div>
@@ -166,7 +166,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({ isOpen, onCl
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     {/* Date Picker */}
                     <div>
-                      <label className="block text-xs uppercase tracking-[0.18em] font-semibold text-espresso mb-1.5 flex items-center gap-1.5">
+                      <label className="block text-xs uppercase tracking-[0.15em] font-semibold text-espresso mb-1.5 flex items-center gap-1.5">
                         <Calendar className="w-3.5 h-3.5 text-terracotta" />
                         <span>Date</span>
                       </label>
@@ -181,7 +181,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({ isOpen, onCl
 
                     {/* Time Slot Picker */}
                     <div>
-                      <label className="block text-xs uppercase tracking-[0.18em] font-semibold text-espresso mb-1.5 flex items-center gap-1.5">
+                      <label className="block text-xs uppercase tracking-[0.15em] font-semibold text-espresso mb-1.5 flex items-center gap-1.5">
                         <Clock className="w-3.5 h-3.5 text-terracotta" />
                         <span>Time Slot</span>
                       </label>
@@ -258,20 +258,20 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({ isOpen, onCl
                   </div>
 
                   {/* Actions */}
-                  <div className="pt-2 sm:pt-4 flex items-center justify-between gap-3">
+                  <div className="pt-2 sm:pt-4 flex items-center justify-between gap-2">
                     <button
                       type="button"
                       onClick={() => setStep(1)}
-                      className="px-4 py-2.5 rounded-full text-xs uppercase tracking-wider text-espresso/70 hover:text-espresso font-semibold flex items-center gap-1.5"
+                      className="px-3 sm:px-4 py-2.5 rounded-full text-xs uppercase tracking-wider text-espresso/70 hover:text-espresso font-semibold flex items-center gap-1 whitespace-nowrap"
                     >
-                      <ArrowLeft className="w-3.5 h-3.5" />
-                      <span>Back</span>
+                      <ArrowLeft className="w-3.5 h-3.5 flex-shrink-0" />
+                      <span className="whitespace-nowrap">Back</span>
                     </button>
                     <button
                       type="submit"
-                      className="px-6 sm:px-8 py-3 sm:py-3.5 rounded-full bg-terracotta hover:bg-terracotta-hover text-offWhite text-xs uppercase tracking-[0.2em] font-semibold transition-colors shadow-md"
+                      className="px-4 sm:px-7 py-2.5 sm:py-3.5 rounded-full bg-terracotta hover:bg-terracotta-hover text-offWhite text-[11px] sm:text-xs uppercase tracking-[0.12em] sm:tracking-[0.18em] font-semibold transition-colors shadow-md whitespace-nowrap inline-flex items-center justify-center"
                     >
-                      Confirm Reservation
+                      <span className="whitespace-nowrap">Confirm Reservation</span>
                     </button>
                   </div>
                 </div>
@@ -303,9 +303,9 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({ isOpen, onCl
 
               <button
                 onClick={resetModal}
-                className="w-full sm:w-auto px-8 py-3 rounded-full bg-espresso text-cream text-xs uppercase tracking-[0.2em] font-semibold hover:bg-espresso-light transition-colors"
+                className="w-full sm:w-auto px-8 py-3 rounded-full bg-espresso text-cream text-xs uppercase tracking-[0.16em] font-semibold hover:bg-espresso-light transition-colors whitespace-nowrap"
               >
-                Close & Return to Atelier
+                <span className="whitespace-nowrap">Close & Return to Atelier</span>
               </button>
             </div>
           )}

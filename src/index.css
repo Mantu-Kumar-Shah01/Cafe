@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@theme {
+  --color-espresso: #1C1714;
+  --color-espresso-dark: #110E0C;
+  --color-espresso-light: #2C2420;
+  --color-espresso-muted: #473B34;
+  
+  --color-cream: #F7F2E8;
+  --color-cream-light: #FFFDF8;
+  --color-cream-dark: #ECE3D4;
+  
+  --color-warmSand: #E8D8C3;
+  --color-warmSand-light: #F4ECE1;
+  --color-warmSand-dark: #D4C0A5;
+  
+  --color-terracotta: #B96545;
+  --color-terracotta-hover: #A35436;
+  --color-terracotta-light: #D68669;
+  --color-terracotta-subtle: rgba(185, 101, 69, 0.12);
+  
+  --color-sage: #7C8B72;
+  --color-sage-light: #9DAF91;
+  --color-sage-dark: #5C6B52;
+  
+  --color-offWhite: #FFFDF8;
+
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-display: "DM Serif Display", "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Manrope", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-accent: "Cinzel", Georgia, serif;
+}
+
+@layer base {
+  * {
+    border-color: rgba(28, 23, 20, 0.1);
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+    background-color: var(--color-cream);
+    color: var(--color-espresso);
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #F7F2E8;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #D4C0A5;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #B96545;
+  }
+}
+
+/* Luxury Grain Overlay */
+.bg-grain {
+  background-image: radial-gradient(rgba(28, 23, 20, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Glassmorphism Luxury */
+.glass-nav {
+  background: rgba(247, 242, 232, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.glass-card-dark {
+  background: rgba(28, 23, 20, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-card-light {
+  background: rgba(255, 253, 248, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Typography styles */
+.font-display-italics {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Custom text selection */
+::selection {
+  background-color: #B96545;
+  color: #FFFDF8;
+}
+
+/* Image reveal animations */
+.img-zoom-hover {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
+}
+.img-zoom-hover:hover {
+  transform: scale(1.04);
+}

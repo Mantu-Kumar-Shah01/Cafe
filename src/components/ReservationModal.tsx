@@ -51,13 +51,13 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({ isOpen, onCl
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-hidden bg-espresso/80 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-6">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-espresso/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6">
       <motion.div
-        initial={{ opacity: 0, scale: 0.96, y: 30 }}
+        initial={{ opacity: 0, scale: 0.95, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.96, y: 30 }}
+        exit={{ opacity: 0, scale: 0.95, y: 20 }}
         transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-        className="relative w-full max-w-2xl bg-cream rounded-t-3xl sm:rounded-3xl shadow-2xl border border-warmSand flex flex-col max-h-[92vh] sm:max-h-[88vh] overflow-hidden"
+        className="relative w-full max-w-2xl bg-cream rounded-3xl shadow-2xl border border-warmSand flex flex-col max-h-[88vh] overflow-hidden my-auto"
       >
         {/* Close Button */}
         <button

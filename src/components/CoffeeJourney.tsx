@@ -1,18 +1,15 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { JOURNEY_STEPS } from '../data/cafeData';
-import { ArrowRight, CheckCircle2, Flame, Droplet, Mountain, Sparkles } from 'lucide-react';
 
 export const CoffeeJourney: React.FC = () => {
   const [activeStep, setActiveStep] = useState<number>(0);
   const current = JOURNEY_STEPS[activeStep];
 
-  const icons = [Mountain, Flame, Droplet, Sparkles];
-
   return (
-    <section id="journey" className="py-24 md:py-36 px-6 sm:px-8 lg:px-12 bg-espresso text-cream relative overflow-hidden">
+    <section id="journey" className="py-12 md:py-16 lg:py-20 px-6 sm:px-8 lg:px-12 bg-white text-espresso relative overflow-hidden">
       {/* Background Section Index Number */}
-      <div className="absolute top-12 right-12 select-none pointer-events-none font-serif text-[120px] lg:text-[180px] font-bold text-cream/5 leading-none">
+      <div className="absolute top-12 right-12 select-none pointer-events-none font-serif text-[120px] lg:text-[180px] font-bold text-warmSand/30 leading-none">
         03
       </div>
 
@@ -23,11 +20,11 @@ export const CoffeeJourney: React.FC = () => {
             <span className="w-1.5 h-1.5 rounded-full bg-terracotta" />
             <span>Process & Philosophy</span>
           </div>
-          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl text-cream tracking-tight leading-[1.05]">
+          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl text-espresso tracking-tight leading-[1.05]">
             From Bean <br />
-            <span className="italic font-light text-warmSand">to Moment.</span>
+            <span className="italic font-light text-terracotta">to Moment.</span>
           </h2>
-          <p className="mt-4 text-cream/70 text-sm sm:text-base font-sans font-light leading-relaxed">
+          <p className="mt-4 text-espresso-muted text-sm sm:text-base font-sans font-light leading-relaxed">
             Trace the unhurried craft across continents—from volcanic high-altitude soil to the sensory quiet of your first morning sip.
           </p>
         </div>
@@ -35,7 +32,6 @@ export const CoffeeJourney: React.FC = () => {
         {/* Step Progression Bar / Selector */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-12">
           {JOURNEY_STEPS.map((s, idx) => {
-            const Icon = icons[idx];
             const isActive = activeStep === idx;
             return (
               <button
@@ -43,20 +39,19 @@ export const CoffeeJourney: React.FC = () => {
                 onClick={() => setActiveStep(idx)}
                 className={`p-4 sm:p-5 rounded-xl border text-left transition-all duration-300 relative group overflow-hidden ${
                   isActive
-                    ? 'bg-cream/10 border-terracotta text-cream shadow-lg'
-                    : 'bg-espresso-light/40 border-cream/10 text-cream/60 hover:bg-cream/5 hover:text-cream'
+                    ? 'bg-cream-light border-terracotta text-espresso shadow-md'
+                    : 'bg-warmSand/20 border-espresso/10 text-espresso/60 hover:bg-warmSand/40 hover:text-espresso'
                 }`}
               >
                 <div className="flex items-center justify-between mb-3">
                   <span className="text-[11px] font-mono tracking-widest text-terracotta font-semibold">
                     {s.step}
                   </span>
-                  <Icon className={`w-4 h-4 transition-transform ${isActive ? 'text-terracotta scale-110' : 'text-cream/40'}`} />
                 </div>
-                <h4 className="font-serif text-base sm:text-lg text-cream font-medium">
+                <h4 className="font-serif text-base sm:text-lg text-espresso font-medium">
                   {s.title}
                 </h4>
-                <p className="text-[11px] text-cream/50 mt-1 line-clamp-1 font-sans">
+                <p className="text-[11px] text-espresso-muted mt-1 line-clamp-1 font-sans">
                   {s.subtitle}
                 </p>
 
@@ -72,9 +67,9 @@ export const CoffeeJourney: React.FC = () => {
         </div>
 
         {/* Dynamic Display Area */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center bg-espresso-light/60 p-6 sm:p-10 rounded-2xl border border-cream/10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center bg-cream-light p-6 sm:p-10 rounded-2xl border border-espresso/10 shadow-sm">
           {/* Left Visual Area with Transition */}
-          <div className="lg:col-span-6 relative aspect-[16/11] sm:aspect-[4/3] rounded-xl overflow-hidden shadow-2xl">
+          <div className="lg:col-span-6 relative aspect-[16/11] sm:aspect-[4/3] rounded-xl overflow-hidden shadow-xl border border-warmSand">
             <AnimatePresence mode="wait">
               <motion.div
                 key={current.step}
@@ -91,11 +86,11 @@ export const CoffeeJourney: React.FC = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-espresso/80 via-espresso/20 to-transparent" />
                 
-                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs text-cream/90">
+                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs text-cream">
                   <span className="px-3 py-1 rounded-full bg-espresso/80 border border-cream/10 text-[10px] uppercase tracking-wider font-semibold">
                     {current.altitudeOrSpec}
                   </span>
-                  <span className="font-mono text-terracotta">Step {current.step} of 04</span>
+                  <span className="font-mono text-warmSand">Step {current.step} of 04</span>
                 </div>
               </motion.div>
             </AnimatePresence>
@@ -116,23 +111,23 @@ export const CoffeeJourney: React.FC = () => {
                   <span className="text-xs uppercase tracking-[0.25em] text-terracotta font-semibold">
                     Phase {current.step}
                   </span>
-                  <h3 className="font-serif text-3xl sm:text-4xl text-cream font-normal mt-1">
+                  <h3 className="font-serif text-3xl sm:text-4xl text-espresso font-normal mt-1">
                     {current.title}
                   </h3>
-                  <h5 className="font-serif italic text-lg text-warmSand mt-0.5">
+                  <h5 className="font-serif italic text-lg text-terracotta mt-0.5">
                     {current.subtitle}
                   </h5>
                 </div>
 
-                <p className="text-cream/80 text-sm sm:text-base font-sans font-light leading-relaxed">
+                <p className="text-espresso-muted text-sm sm:text-base font-sans font-light leading-relaxed">
                   {current.description}
                 </p>
 
                 {/* Key Spec Badges */}
                 <div className="space-y-2.5 pt-2">
                   {current.details.map((detail, i) => (
-                    <div key={i} className="flex items-center gap-2.5 text-xs sm:text-sm text-cream/90">
-                      <CheckCircle2 className="w-4 h-4 text-terracotta flex-shrink-0" />
+                    <div key={i} className="flex items-center gap-2.5 text-xs sm:text-sm text-espresso">
+                      <span className="w-1.5 h-1.5 rounded-full bg-terracotta flex-shrink-0" />
                       <span className="font-sans font-light">{detail}</span>
                     </div>
                   ))}
@@ -142,12 +137,11 @@ export const CoffeeJourney: React.FC = () => {
                 <div className="pt-4 flex flex-wrap items-center gap-3 sm:gap-4">
                   <button
                     onClick={() => setActiveStep((prev) => (prev + 1) % JOURNEY_STEPS.length)}
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-terracotta hover:bg-terracotta-hover text-offWhite uppercase tracking-[0.18em] text-xs font-semibold transition-colors whitespace-nowrap"
+                    className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-espresso text-cream hover:bg-terracotta uppercase tracking-[0.18em] text-xs font-semibold transition-colors whitespace-nowrap"
                   >
                     <span className="whitespace-nowrap">{activeStep === 3 ? 'Restart Journey' : 'Next Stage'}</span>
-                    <ArrowRight className="w-3.5 h-3.5 flex-shrink-0" />
                   </button>
-                  <span className="text-xs text-cream/40 font-mono">
+                  <span className="text-xs text-espresso-muted font-mono">
                     Dialed with micro-lot precision
                   </span>
                 </div>

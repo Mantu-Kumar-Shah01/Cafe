@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { EXPERIENCE_POINTS } from '../data/cafeData';
-import { Sparkles, ArrowUpRight } from 'lucide-react';
 
 interface CafeExperienceProps {
   onOpenBooking: () => void;
@@ -9,27 +8,34 @@ interface CafeExperienceProps {
 
 export const CafeExperience: React.FC<CafeExperienceProps> = ({ onOpenBooking }) => {
   return (
-    <section id="experience" className="py-24 md:py-36 px-6 sm:px-8 lg:px-12 bg-cream relative overflow-hidden">
+    <section id="experience" className="py-12 md:py-16 lg:py-20 px-6 sm:px-8 lg:px-12 bg-white relative overflow-hidden">
       {/* Background Section Index Number */}
-      <div className="absolute top-12 left-12 select-none pointer-events-none font-serif text-[120px] lg:text-[180px] font-bold text-warmSand/25 leading-none">
+      <motion.div 
+        initial={{ opacity: 0, x: -30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
+        className="absolute top-12 left-12 select-none pointer-events-none font-serif text-[120px] lg:text-[180px] font-bold text-warmSand/25 leading-none"
+      >
         02
-      </div>
+      </motion.div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Asymmetrical Image Composition */}
           <div className="lg:col-span-6 relative">
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, scale: 0.95, y: 30 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-              className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/5] border border-warmSand"
+              whileHover={{ scale: 1.01 }}
+              className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/5] border border-warmSand group cursor-pointer"
             >
               <img
                 src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1200&auto=format&fit=crop"
                 alt="Architectural Luxury Cafe Interior"
-                className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-espresso/60 via-transparent to-transparent" />
               
@@ -45,11 +51,12 @@ export const CafeExperience: React.FC<CafeExperienceProps> = ({ onOpenBooking })
 
             {/* Overlapping Floating Small Image Card */}
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 40, x: 20 }}
+              whileInView={{ opacity: 1, y: 0, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="hidden sm:block absolute -bottom-10 -right-8 w-52 rounded-xl overflow-hidden shadow-xl border-2 border-cream z-20"
+              whileHover={{ y: -6, scale: 1.03 }}
+              className="hidden sm:block absolute -bottom-10 -right-8 w-52 rounded-xl overflow-hidden shadow-xl border-2 border-cream z-20 cursor-pointer"
             >
               <img
                 src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=600&auto=format&fit=crop"
@@ -65,13 +72,12 @@ export const CafeExperience: React.FC<CafeExperienceProps> = ({ onOpenBooking })
           {/* Right Column: Narrative & Feature Points */}
           <div className="lg:col-span-6 flex flex-col justify-center">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             >
               <div className="inline-flex items-center gap-2 text-terracotta uppercase tracking-[0.3em] text-xs font-semibold mb-4">
-                <Sparkles className="w-3.5 h-3.5" />
                 <span>The Atmosphere</span>
               </div>
 
@@ -95,7 +101,8 @@ export const CafeExperience: React.FC<CafeExperienceProps> = ({ onOpenBooking })
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.1 * idx }}
-                  className="group p-4 rounded-xl bg-warmSand/20 hover:bg-warmSand/40 transition-colors duration-300 border border-espresso/5"
+                  whileHover={{ y: -4, backgroundColor: 'rgba(232, 216, 195, 0.45)' }}
+                  className="group p-4 rounded-xl bg-warmSand/20 transition-all duration-300 border border-espresso/5 cursor-default"
                 >
                   <span className="font-serif text-xs font-semibold text-terracotta tracking-widest block mb-2">
                     {feat.number}
@@ -115,16 +122,18 @@ export const CafeExperience: React.FC<CafeExperienceProps> = ({ onOpenBooking })
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.5 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
               className="mt-10"
             >
-              <button
+              <motion.button
                 onClick={onOpenBooking}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 py-3.5 rounded-full bg-espresso text-cream hover:bg-terracotta transition-all duration-300 text-xs uppercase tracking-[0.16em] sm:tracking-[0.2em] font-semibold group shadow-md whitespace-nowrap"
+                whileHover={{ scale: 1.04, y: -2 }}
+                whileTap={{ scale: 0.96 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+                className="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-8 py-3.5 rounded-full bg-espresso text-cream hover:bg-terracotta transition-colors text-xs uppercase tracking-[0.16em] sm:tracking-[0.2em] font-semibold shadow-md whitespace-nowrap"
               >
                 <span className="whitespace-nowrap">Reserve Table Sanctuary</span>
-                <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-warmSand flex-shrink-0" />
-              </button>
+              </motion.button>
             </motion.div>
           </div>
         </div>

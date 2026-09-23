@@ -1,17 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, HeartHandshake, Award, Leaf } from 'lucide-react';
 
 export const OurStory: React.FC = () => {
   const stats = [
-    { value: '100%', label: 'Direct Trade Farm Partnerships', icon: HeartHandshake },
-    { value: '88+', label: 'Specialty Q-Grade Minimum', icon: Award },
-    { value: 'Zero', label: 'Single-Use Plastic Footprint', icon: Leaf },
-    { value: '8kg', label: 'Micro-Batch Roast Limit', icon: Sparkles },
+    { value: '100%', label: 'Direct Trade Farm Partnerships' },
+    { value: '88+', label: 'Specialty Q-Grade Minimum' },
+    { value: 'Zero', label: 'Single-Use Plastic Footprint' },
+    { value: '8kg', label: 'Micro-Batch Roast Limit' },
   ];
 
   return (
-    <section id="story" className="py-24 md:py-36 px-6 sm:px-8 lg:px-12 bg-warmSand/40 relative overflow-hidden">
+    <section id="story" className="py-12 md:py-16 lg:py-20 px-6 sm:px-8 lg:px-12 bg-white relative overflow-hidden">
       {/* Background Section Index Number */}
       <div className="absolute top-12 left-12 select-none pointer-events-none font-serif text-[120px] lg:text-[180px] font-bold text-espresso/5 leading-none">
         04
@@ -47,7 +46,7 @@ export const OurStory: React.FC = () => {
               </div>
 
               {/* Quote Block */}
-              <div className="mt-8 p-6 rounded-xl bg-cream/70 border-l-2 border-terracotta">
+              <div className="mt-8 p-6 rounded-xl bg-warmSand/20 border-l-2 border-terracotta">
                 <p className="font-serif italic text-lg sm:text-xl text-espresso">
                   "We do not serve haste. We curate presence, one ceramic cup at a time."
                 </p>
@@ -88,29 +87,23 @@ export const OurStory: React.FC = () => {
 
         {/* Brand Metrics Bar */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 pt-12 border-t border-espresso/10">
-          {stats.map((stat, i) => {
-            const Icon = stat.icon;
-            return (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="text-center md:text-left"
-              >
-                <div className="inline-flex p-2.5 rounded-lg bg-cream/80 text-terracotta mb-3">
-                  <Icon className="w-5 h-5" />
-                </div>
-                <div className="font-serif text-3xl sm:text-4xl text-espresso font-normal">
-                  {stat.value}
-                </div>
-                <div className="text-xs text-espresso-muted font-sans font-light mt-1 uppercase tracking-wider">
-                  {stat.label}
-                </div>
-              </motion.div>
-            );
-          })}
+          {stats.map((stat, i) => (
+            <motion.div
+              key={stat.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.1 }}
+              className="text-center md:text-left"
+            >
+              <div className="font-serif text-3xl sm:text-4xl text-espresso font-normal mb-1">
+                {stat.value}
+              </div>
+              <div className="text-xs text-espresso-muted font-sans font-light uppercase tracking-wider">
+                {stat.label}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

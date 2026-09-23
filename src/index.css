@@ -39,7 +39,7 @@
   html {
     scroll-behavior: smooth;
     font-family: var(--font-sans);
-    background-color: var(--color-cream);
+    background-color: #ffffff;
     color: var(--color-espresso);
   }
 
@@ -48,7 +48,7 @@
     width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #F7F2E8;
+    background: #ffffff;
   }
   ::-webkit-scrollbar-thumb {
     background: #D4C0A5;
@@ -83,7 +83,7 @@
 
 /* Glassmorphism Luxury */
 .glass-nav {
-  background: rgba(247, 242, 232, 0.88);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 }

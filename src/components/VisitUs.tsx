@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Clock, Phone, Navigation, Compass, CalendarCheck, Check } from 'lucide-react';
 
 interface VisitUsProps {
   onOpenBooking: () => void;
@@ -16,7 +15,7 @@ export const VisitUs: React.FC<VisitUsProps> = ({ onOpenBooking }) => {
   };
 
   return (
-    <section id="visit" className="py-20 md:py-36 px-5 sm:px-8 lg:px-12 bg-cream relative overflow-hidden">
+    <section id="visit" className="py-12 md:py-16 lg:py-20 px-5 sm:px-8 lg:px-12 bg-white relative overflow-hidden">
       {/* Background Section Index Number */}
       <div className="absolute top-10 right-6 select-none pointer-events-none font-serif text-[90px] sm:text-[140px] lg:text-[180px] font-bold text-warmSand/25 leading-none">
         07
@@ -33,7 +32,6 @@ export const VisitUs: React.FC<VisitUsProps> = ({ onOpenBooking }) => {
               transition={{ duration: 0.6 }}
             >
               <div className="inline-flex items-center gap-2 text-terracotta uppercase tracking-[0.3em] text-xs font-semibold mb-2 sm:mb-3">
-                <Compass className="w-3.5 h-3.5" />
                 <span>Sanctuary & Coordinates</span>
               </div>
 
@@ -50,9 +48,6 @@ export const VisitUs: React.FC<VisitUsProps> = ({ onOpenBooking }) => {
             <div className="space-y-5 sm:space-y-6 divide-y divide-espresso/10">
               {/* Address */}
               <div className="pt-3 sm:pt-4 first:pt-0 flex items-start gap-3 sm:gap-4">
-                <div className="p-2.5 sm:p-3 rounded-full bg-warmSand/40 text-terracotta flex-shrink-0">
-                  <MapPin className="w-4 h-4 sm:w-5 sm:h-5" />
-                </div>
                 <div className="flex-1">
                   <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] text-espresso/50 font-semibold block mb-0.5">
                     Location
@@ -68,9 +63,6 @@ export const VisitUs: React.FC<VisitUsProps> = ({ onOpenBooking }) => {
 
               {/* Hours */}
               <div className="pt-5 sm:pt-6 flex items-start gap-3 sm:gap-4">
-                <div className="p-2.5 sm:p-3 rounded-full bg-warmSand/40 text-terracotta flex-shrink-0">
-                  <Clock className="w-4 h-4 sm:w-5 sm:h-5" />
-                </div>
                 <div className="flex-1">
                   <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] text-espresso/50 font-semibold block mb-0.5">
                     Opening Hours
@@ -90,9 +82,6 @@ export const VisitUs: React.FC<VisitUsProps> = ({ onOpenBooking }) => {
 
               {/* Contact */}
               <div className="pt-5 sm:pt-6 flex items-start gap-3 sm:gap-4">
-                <div className="p-2.5 sm:p-3 rounded-full bg-warmSand/40 text-terracotta flex-shrink-0">
-                  <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
-                </div>
                 <div className="flex-1">
                   <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] text-espresso/50 font-semibold block mb-0.5">
                     Concierge & Enquiries
@@ -109,17 +98,15 @@ export const VisitUs: React.FC<VisitUsProps> = ({ onOpenBooking }) => {
             <div className="flex flex-wrap items-center gap-3 sm:gap-4 mt-8 sm:mt-10">
               <button
                 onClick={handleCopyAddress}
-                className="w-full sm:w-auto px-6 py-3.5 rounded-full border border-espresso/20 hover:border-espresso text-espresso text-xs font-semibold uppercase tracking-[0.18em] transition-colors inline-flex items-center justify-center gap-2 whitespace-nowrap"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-full border border-espresso/20 hover:border-espresso text-espresso text-xs font-semibold uppercase tracking-[0.18em] transition-colors inline-flex items-center justify-center whitespace-nowrap"
               >
-                {copied ? <Check className="w-3.5 h-3.5 text-sage flex-shrink-0" /> : <Navigation className="w-3.5 h-3.5 text-terracotta flex-shrink-0" />}
                 <span className="whitespace-nowrap">{copied ? 'Address Copied!' : 'Copy Address'}</span>
               </button>
 
               <button
                 onClick={onOpenBooking}
-                className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-terracotta hover:bg-terracotta-hover text-offWhite text-xs font-semibold uppercase tracking-[0.18em] transition-all duration-300 shadow-md inline-flex items-center justify-center gap-2 whitespace-nowrap"
+                className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-terracotta hover:bg-terracotta-hover text-offWhite text-xs font-semibold uppercase tracking-[0.18em] transition-all duration-300 shadow-md inline-flex items-center justify-center whitespace-nowrap"
               >
-                <CalendarCheck className="w-3.5 h-3.5 flex-shrink-0" />
                 <span className="whitespace-nowrap">Reserve a Table</span>
               </button>
             </div>

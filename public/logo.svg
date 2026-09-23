@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" width="100%" height="100%">
+  <defs>
+    <linearGradient id="logoGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D98A5B" />
+      <stop offset="100%" stop-color="#9E4D2A" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Emblem Group -->
+  <g transform="translate(10, 10)">
+    <!-- Outer Ring -->
+    <circle cx="40" cy="40" r="38" fill="none" stroke="#C26D47" stroke-width="2" opacity="0.4"/>
+    <circle cx="40" cy="40" r="34" fill="#2C1E19" stroke="#C26D47" stroke-width="1.5"/>
+    
+    <!-- Bean Path -->
+    <g transform="translate(-10, -5) scale(0.2)">
+      <path d="M228 140 C140 180 130 330 220 370 C240 378 250 360 242 345 C210 290 210 220 236 155 C242 142 236 136 228 140 Z" fill="url(#logoGold)" />
+      <path d="M284 140 C372 180 382 330 292 370 C272 378 262 360 270 345 C302 290 302 220 276 155 C270 142 276 136 284 140 Z" fill="url(#logoGold)" />
+      <path d="M256 380 C230 310 282 230 256 120 C248 85 272 60 272 60 C272 60 260 80 264 100 C276 160 236 250 256 380 Z" fill="#F4D3C2" />
+    </g>
+  </g>
+
+  <!-- Brand Text Typography -->
+  <text x="100" y="48" font-family="'Cinzel', 'DM Serif Display', Georgia, serif" font-size="24" font-weight="700" letter-spacing="4" fill="#2C1E19">
+    CAFÉDEMO
+  </text>
+  <text x="100" y="68" font-family="'Manrope', sans-serif" font-size="9" font-weight="600" letter-spacing="4" fill="#C26D47">
+    SPECIALTY ATELIER &amp; ROASTERY
+  </text>
+</svg>

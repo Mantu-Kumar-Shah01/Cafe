@@ -48,7 +48,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-cream text-espresso selection:bg-terracotta selection:text-offWhite pb-16 md:pb-0">
+    <div className="relative min-h-screen bg-white text-espresso selection:bg-terracotta selection:text-offWhite pb-16 md:pb-0">
       {/* Subtle Custom Follower Cursor */}
       <CustomCursor />
 

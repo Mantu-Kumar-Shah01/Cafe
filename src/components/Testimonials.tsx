@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { TESTIMONIALS } from '../data/cafeData';
-import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 
 export const Testimonials: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
@@ -24,15 +23,27 @@ export const Testimonials: React.FC = () => {
   };
 
   return (
-    <section id="testimonials" className="py-20 md:py-36 px-5 sm:px-8 lg:px-12 bg-offWhite relative overflow-hidden">
+    <section id="testimonials" className="py-12 md:py-16 lg:py-20 px-5 sm:px-8 lg:px-12 bg-white relative overflow-hidden">
       {/* Background Section Index Number */}
-      <div className="absolute top-10 left-6 select-none pointer-events-none font-serif text-[90px] sm:text-[140px] lg:text-[180px] font-bold text-warmSand/20 leading-none">
+      <motion.div 
+        initial={{ opacity: 0, x: -30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
+        className="absolute top-10 left-6 select-none pointer-events-none font-serif text-[90px] sm:text-[140px] lg:text-[180px] font-bold text-warmSand/20 leading-none"
+      >
         06
-      </div>
+      </motion.div>
 
       <div className="max-w-5xl mx-auto relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-10 md:mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-10 md:mb-16"
+        >
           <div className="inline-flex items-center gap-2 text-terracotta uppercase tracking-[0.3em] text-xs font-semibold mb-2 md:mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-terracotta" />
             <span>Accolades & Voices</span>
@@ -40,31 +51,19 @@ export const Testimonials: React.FC = () => {
           <h2 className="font-serif text-3xl sm:text-5xl text-espresso tracking-tight">
             Words from the Atelier
           </h2>
-        </div>
+        </motion.div>
 
         {/* Testimonial Stage */}
         <div className="relative bg-cream/70 rounded-3xl p-6 sm:p-12 md:p-16 border border-warmSand shadow-sm">
-          {/* Oversized Decorative Quotation Mark */}
-          <div className="absolute -top-5 left-6 sm:left-10 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-terracotta text-offWhite flex items-center justify-center shadow-lg">
-            <Quote className="w-5 h-5 sm:w-6 sm:h-6 fill-current" />
-          </div>
-
           <AnimatePresence mode="wait">
             <motion.div
               key={current.id}
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.4 }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               className="space-y-6 sm:space-y-8"
             >
-              {/* Star Rating */}
-              <div className="flex items-center gap-1 text-terracotta pt-2 sm:pt-0">
-                {[...Array(current.rating)].map((_, i) => (
-                  <Star key={i} className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" />
-                ))}
-              </div>
-
               {/* Editorial Large Quote */}
               <blockquote className="font-serif text-xl sm:text-3xl md:text-4xl text-espresso leading-relaxed italic font-normal">
                 "{current.quote}"
@@ -88,22 +87,26 @@ export const Testimonials: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Navigation Arrows */}
+                {/* Text Navigation Buttons */}
                 <div className="flex items-center gap-2 sm:gap-3">
-                  <button
+                  <motion.button
+                    whileHover={{ scale: 1.06 }}
+                    whileTap={{ scale: 0.94 }}
                     onClick={handlePrev}
-                    className="p-2.5 sm:p-3 rounded-full border border-espresso/20 text-espresso hover:border-terracotta hover:text-terracotta hover:bg-terracotta/5 transition-colors"
+                    className="px-3.5 py-1.5 rounded-full border border-espresso/20 text-espresso hover:border-terracotta hover:text-terracotta hover:bg-terracotta/5 transition-colors text-xs uppercase font-semibold tracking-wider"
                     aria-label="Previous Testimonial"
                   >
-                    <ChevronLeft className="w-4 h-4" />
-                  </button>
-                  <button
+                    Prev
+                  </motion.button>
+                  <motion.button
+                    whileHover={{ scale: 1.06 }}
+                    whileTap={{ scale: 0.94 }}
                     onClick={handleNext}
-                    className="p-2.5 sm:p-3 rounded-full border border-espresso/20 text-espresso hover:border-terracotta hover:text-terracotta hover:bg-terracotta/5 transition-colors"
+                    className="px-3.5 py-1.5 rounded-full border border-espresso/20 text-espresso hover:border-terracotta hover:text-terracotta hover:bg-terracotta/5 transition-colors text-xs uppercase font-semibold tracking-wider"
                     aria-label="Next Testimonial"
                   >
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
+                    Next
+                  </motion.button>
                 </div>
               </div>
             </motion.div>

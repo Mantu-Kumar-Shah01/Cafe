@@ -1,5 +1,4 @@
 import React from 'react';
-import { Sparkles, Calendar, Coffee } from 'lucide-react';
 
 interface MobileQuickBarProps {
   onOpenBooking: () => void;
@@ -18,9 +17,8 @@ export const MobileQuickBar: React.FC<MobileQuickBarProps> = ({
         {/* Menu Jump */}
         <a
           href="#menu"
-          className="flex items-center gap-2 text-espresso hover:text-terracotta transition-colors py-1 text-xs uppercase tracking-wider font-semibold whitespace-nowrap"
+          className="flex items-center text-espresso hover:text-terracotta transition-colors py-1 px-2 text-xs uppercase tracking-wider font-semibold whitespace-nowrap"
         >
-          <Coffee className="w-4 h-4 text-terracotta flex-shrink-0" />
           <span className="whitespace-nowrap">Menu</span>
         </a>
 
@@ -28,9 +26,8 @@ export const MobileQuickBar: React.FC<MobileQuickBarProps> = ({
         {savedItemCount > 0 && (
           <button
             onClick={onOpenWishlist}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-warmSand/60 text-espresso text-xs font-semibold whitespace-nowrap"
+            className="flex items-center px-3 py-1.5 rounded-full bg-warmSand/60 text-espresso text-xs font-semibold whitespace-nowrap"
           >
-            <Sparkles className="w-3.5 h-3.5 text-terracotta flex-shrink-0" />
             <span className="whitespace-nowrap">{savedItemCount} Saved</span>
           </button>
         )}
@@ -38,9 +35,8 @@ export const MobileQuickBar: React.FC<MobileQuickBarProps> = ({
         {/* Primary Reserve Button */}
         <button
           onClick={onOpenBooking}
-          className="px-5 py-2.5 rounded-full bg-terracotta text-offWhite text-xs uppercase tracking-[0.18em] font-semibold hover:bg-terracotta-hover transition-colors flex items-center gap-1.5 shadow-md whitespace-nowrap"
+          className="px-5 py-2.5 rounded-full bg-terracotta text-offWhite text-xs uppercase tracking-[0.18em] font-semibold hover:bg-terracotta-hover transition-colors flex items-center shadow-md whitespace-nowrap"
         >
-          <Calendar className="w-3.5 h-3.5 flex-shrink-0" />
           <span className="whitespace-nowrap">Reserve</span>
         </button>
       </div>
